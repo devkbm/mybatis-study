@@ -18,7 +18,9 @@ public class TestController {
 	@GetMapping("/test")
 	public ResponseEntity<String> test() {
 		
-		mapper.getUserList(null);
+		mapper.getUseXml();
+		mapper.getUseAnnotation();
+		
 		return new ResponseEntity<String>("test", HttpStatus.OK);
 	}
 }

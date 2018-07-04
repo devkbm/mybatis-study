@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property name="LOG_PATH" value="/var/log/application"/> 
+		
+	<!-- 콘솔 로그 출력 --> 
+	<appender name="TEXT_CONSOLE" class="ch.qos.logback.core.ConsoleAppender"> 
+		<encoder> 
+			<charset>UTF-8</charset> 
+			<Pattern>%d %-4relative [%thread] %-5level %logger{35} - %msg%n</Pattern> 
+		</encoder> 
+	</appender> 
+				
+	<!-- INFO 레벨 이하 로그를 콘솔 및 파일로 출력 --> 
+	<root level="INFO"> 
+		<appender-ref ref="TEXT_CONSOLE"/> 
+	</root>
+	
+	<logger name="jdbc" level="OFF"/>
+  
+  	<logger name="jdbc.sqlonly" level="OFF" additivity="false">>
+    	<appender-ref ref="TEXT_CONSOLE" />
+  	</logger>  
+  	
+  	<logger name="jdbc.sqltiming" level="DEBUG" additivity="false">>
+    	<appender-ref ref="TEXT_CONSOLE" />
+  	</logger>
+  	
+  	<logger name="jdbc.audit" level="OFF" additivity="false">>
+    	<appender-ref ref="TEXT_CONSOLE" />
+  	</logger>
+  	
+  	<logger name="jdbc.resultset" level="OFF" additivity="false">>
+    	<appender-ref ref="TEXT_CONSOLE" />
+  	</logger>
+  	
+  	<logger name="jdbc.resultsettable" level="DEBUG" additivity="false">> 
+    	<appender-ref ref="TEXT_CONSOLE" />
+  	</logger>
+  	
+  	<logger name="jdbc.connection" level="OFF" additivity="false">> 
+    	<appender-ref ref="TEXT_CONSOLE" />
+  	</logger>  
+    
+</configuration>
