@@ -22,9 +22,24 @@ public interface TestMapper {
 	List<Map<String, String>> getUseAnnotation();
 	
 	/**
-	 * if
-	 * choose when otherwise
-	 * foreach
+	 * <if test="statement"></if>
 	 */
-	List<Map<String, String>> getUseDynamicSql(Map<String, String> map);
+	List<Map<String, String>> getUseDynamicSql1(Map<String, String> map);
+	
+	/**
+	 * <choose>
+	 * 	<when test="condition">
+	 * 	<otherwise>
+	 *  </otherwise>
+	 * </choose>
+	 * 
+	 */
+	List<Map<String, String>> getUseDynamicSql2(Map<String, String> map);
+	
+	/**
+	 * <foreach item="array" index="index" collection="list" open="(" separator="," close=")">
+	 * </foreach>
+	 */
+	List<Map<String, String>> getUseDynamicSql3(Map<String, String> map);
+	
 }

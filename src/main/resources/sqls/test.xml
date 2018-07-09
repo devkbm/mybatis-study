@@ -8,10 +8,16 @@
 	]]>     	  
 	</select>
 	
-	<select id="getUseDynamicSql" parameterType="map" resultType="map">
+	<select id="getUseDynamicSql1" parameterType="map" resultType="map">
     <![CDATA[
-		SELECT 1 as num 
+		select a.user_id
+		     , a.user_name
+		  from com.cmuser a
+		 where 1=1		            
 	]]>     	  
+	<if test="userid != null"><![CDATA[
+	      and a.user_id = #{userid} 
+	]]></if>	
 	</select>	   
 			
 </mapper>
