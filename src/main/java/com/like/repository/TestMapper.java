@@ -40,6 +40,6 @@ public interface TestMapper {
 	 * <foreach item="array" index="index" collection="list" open="(" separator="," close=")">
 	 * </foreach>
 	 */
-	List<Map<String, String>> getUseDynamicSql3(Map<String, String> map);
+	List<Map<String, String>> getUseDynamicSql3(List<String> userList);
 	
 }

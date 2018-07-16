@@ -4,10 +4,15 @@
 
     <select id="getUseXml" resultType="map">
     <![CDATA[
-		SELECT 1 as num 
+		SELECT 1 as num 		
 	]]>     	  
 	</select>
 	
+	<!--
+		<trim prefix="WHERE" prefixOverrides="AND |OR ">
+	  	... 
+		</trim> 
+	 -->
 	<select id="getUseDynamicSql1" parameterType="map" resultType="map">
     <![CDATA[
 		select a.user_id
@@ -15,9 +20,43 @@
 		  from com.cmuser a
 		 where 1=1		            
 	]]>     	  
-	<if test="userid != null"><![CDATA[
+	<if test="userid != null and '1'.equals('1')"><![CDATA[
 	      and a.user_id = #{userid} 
 	]]></if>	
-	</select>	   
+	</select>
+	
+	<select id="getUseDynamicSql2" parameterType="map" resultType="map">
+    <![CDATA[
+		select a.user_id
+		     , a.user_name
+		  from com.cmuser a
+		 where 1=1		            
+	]]>     
+	<choose>
+	  	<when test="userid = 1"><![CDATA[
+	      and a.user_id = #{userid} 
+		]]></when>
+	  	<otherwise>
+	  	<![CDATA[
+	      and a.user_id = '2' 
+		]]>
+	   </otherwise>
+ 	</choose>	  
+	</select>	 
+	
+	<select id="getUseDynamicSql3" parameterType="list" resultType="map">
+    <![CDATA[
+		select a.user_id
+		     , a.user_name
+		  from com.cmuser a
+		 where 1=1		            
+	]]>     
+	<if test="list != null">
+		   and a.user_id in 	
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</if>	  	
+	</select>  
 			
 </mapper>
