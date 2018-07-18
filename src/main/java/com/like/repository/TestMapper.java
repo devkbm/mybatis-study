@@ -42,4 +42,9 @@ public interface TestMapper {
 	 */
 	List<Map<String, String>> getUseDynamicSql3(List<String> userList);
 	
+	int insertUser(Map<String, String> user);
+	
+	int updateUser(Map<String, String> user);
+	
+	int deleteUser(Map<String, String> user);
 }

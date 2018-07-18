@@ -58,5 +58,23 @@
 		</foreach>
 	</if>	  	
 	</select>  
+	
+	<insert id="insertUser" parameterType="map">
+		insert into com.cmuser(user_id, user_name, password)
+                        values(#{user_id}, #{user_name}, #{password})
+	</insert>
+	
+	<update id="updateUser" parameterType="map">
+		update com.cmuser
+		   set user_name 	= #{user_name}
+		     , password 	= #{password}
+		 where user_id	= #{user_id}   
+	</update>
+	
+	<delete id="deleteUser" parameterType="map">
+		delete
+		  from com.cmuser
+		 where user_id = #{user_id} 
+	</delete>
 			
 </mapper>
