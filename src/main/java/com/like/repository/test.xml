@@ -4,7 +4,7 @@
 
     <select id="getUseXml" resultType="map">
     <![CDATA[
-		SELECT 1 as num 		
+		SELECT 2 as num 		
 	]]>     	  
 	</select>
 	
@@ -33,7 +33,7 @@
 		 where 1=1		            
 	]]>     
 	<choose>
-	  	<when test="userid = 1"><![CDATA[
+	  	<when test="userid == 1"><![CDATA[
 	      and a.user_id = #{userid} 
 		]]></when>
 	  	<otherwise>
